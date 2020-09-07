@@ -1,0 +1,31 @@
+- name: Installing pyenv
+  shell: |
+    brew install pyenv
+
+- name: Git clone PyEnv VirtualEnv
+  git:
+    repo: 'https://github.com/pyenv/pyenv-virtualenv.git'
+    dest: ~/.pyenv/plugins/pyenv-virtualenv
+    clone: yes
+    update: yes
+
+- name: Setting Python Environment
+  shell: |
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+    echo 'export PATH="$PYENV_ROOT/shims:$PATH"' >> ~/.zshrc
+    echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+    echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
+    . ~/.zshrc
+
+- name: Installing Python
+  shell: |
+    {{ pyenv_root }}pyenv install {{ python_ver }}
+    {{ pyenv_root }}pyenv global {{ python_ver }}
+  args:
+    stdin: "N" 
+
+- name: Installing Django
+  shell: |
+    {{ pyenv_root }}pyenv shell {{ project_name }}
+    $HOME/.pyenv/shims/pip install django
+  ignore_errors: True

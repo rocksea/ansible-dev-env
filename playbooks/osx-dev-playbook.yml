@@ -1,0 +1,15 @@
+- hosts: localhost
+  vars:
+    server_name: rocksea
+    server_port: 80
+    project_name: rocksea
+    pyenv_root: /usr/local/bin/
+    python_ver: 3.8.5
+    jenv_root: /usr/local/bin/
+    java_ver: 11
+    nginx_conf_dir: /etc/nginx/sites-available
+    nginx_sites_dir: /etc/nginx/sites-enabled
+    nginx_error_log: /var/log/nginx
+  tasks:
+  - include: java/java_setup.yml
+  - include: python/python_setup.yml
