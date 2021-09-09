@@ -4,7 +4,16 @@
 
 - name: Installing java
   shell: |
-    brew cask install adoptopenjdk{{ java_ver }}
+    brew tap AdoptOpenJDK/openjdk
+    brew install --cask adoptopenjdk{{ java_ver }}
+
+- name: Installing Gradle
+  shell: |
+    brew install gradle
+
+- name: Installing Maven
+  shell: |
+    brew install maven
 
 - name: Setting Java Environment
   shell: |
