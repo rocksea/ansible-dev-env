@@ -1,8 +1,8 @@
-- name: Installing jenv
+- name: Installing Jenv
   shell: |
     brew install jenv
 
-- name: Installing java
+- name: Installing Java
   shell: |
     brew tap AdoptOpenJDK/openjdk
     brew install --cask adoptopenjdk{{ java_ver }}
