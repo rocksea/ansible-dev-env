@@ -1,0 +1,7 @@
+- name: Installing Homebrew
+  shell: |
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ignore_errors: True
+  become: yes
+  become_user: rocksea
+  become_method: su

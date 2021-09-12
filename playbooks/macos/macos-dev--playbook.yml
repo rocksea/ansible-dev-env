@@ -11,6 +11,7 @@
     nginx_sites_dir: /etc/nginx/sites-enabled
     nginx_error_log: /var/log/nginx
   tasks:
+  - include: homebrew/setup.yml
   - include: java/setup.yml
   - include: python/setup.yml
   - include: k8s/setup.yml
