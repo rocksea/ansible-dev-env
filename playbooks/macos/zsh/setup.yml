@@ -13,3 +13,17 @@
     dest: ~/.zsh/zsh-syntax-highlighting
     clone: yes
     update: yes
+
+- name: Installing new fonts
+  git:
+    repo: 'https://github.com/powerline/fonts.git'
+    dest: ~/.fonts/
+    clone: yes
+    update: yes
+
+- name: Installing iterm colors
+  git:
+    repo: 'https://github.com/dracula/iterm.git'
+    dest: ~/.iterm/colors/dracula
+    clone: yes
+    update: yes
