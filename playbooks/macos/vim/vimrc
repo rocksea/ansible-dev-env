@@ -1,0 +1,159 @@
+syntax on
+"set autoindent  " 자동 들여쓰기
+"set cindent " C 프로그래밍용 자동 들여쓰기
+"set smartindent " 스마트한 들여쓰기
+"set tabstop=2 "  탭을 2칸으로
+"filetype indent on "  파일 종류에 따른 구문강조
+"set backspace=eol,start,indent "  줄의 끝, 시작, 들여쓰기에서 백스페이스시 이전줄로
+"set paste " snipMate 동작이 안되어 주석처리
+"set smartindent
+"set tabstop=2
+"set shiftwidth=2
+"set expandtab
+
+
+"2014.12.31 by rocksea
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set runtimepath+=~/.vim/bundle/vundle
+" 2015.11.23 by rocksea
+set runtimepath+=~/.vim/rocksea
+" 2016.02.03 by rocksea
+set runtimepath+=~/.vim/calendar.vim
+" 2016.02.29 by rocksea
+set runtimepath+=~/.vim/bundle/vim-speeddating
+" 2016.08.03 by rocksea
+"execute pathogen#infect()
+
+
+
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+Plugin 'snipMate'
+Plugin 'neocomplcache'
+Plugin 'The-NERD-Tree'
+"Plugin 'VimOrganizer'
+Plugin 'itchyny/calendar.vim'
+"Plugin 'calendar.vim'
+Plugin 'Conque-Shell'
+Plugin 'moll/vim-node'
+Plugin 'jceb/vim-orgmode'
+Plugin 'speeddating'
+Plugin 'mnpk/vim-jira-complete' "2016.03.13 by rocksea
+"Plugin 'scrooloose/syntastic' "2016.08.03 by rocksea
+Plugin 'taglist-plus' "2017.03.23 by rocksea
+
+let g:neocomplcache_enable_at_startup = 1
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+filetype plugin on    
+
+"autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
+"autocmd FileType java setlocal expandtab shiftwidth=2 softtabstop=2
+"autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+"autocmd FileType php setlocal expandtab shiftwidth=2 softtabstop=2
+"2016.02.18 by rocksea - nodejs
+
+"autocmd BufWritePre,BufRead *.py :normal gg=G
+
+"2016.02.03 by rocksea - google calendar
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+
+"2021.09.17 by rocksea - removes the line change character from the current line
+nnoremap <S-U> <S-J>
+
+"2016.02.18 by rocksea - hot key for move split window
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+"2020.02.19 by rocksea - moving window
+nnoremap <S-H> <C-W><S-H>
+nnoremap <S-L> <C-W><S-L>
+nnoremap <S-K> <C-W><S-K>
+nnoremap <S-J> <C-W><S-J>
+nnoremap <S-R> <C-W><S-R>
+
+"2016.02.23 by rocksea - COLOR THEME (https://github.com/chrishunt/color-schemes.git)
+colorscheme vimbrant
+highlight ColorColumn ctermbg=7
+highlight ColorColumn guibg=Gray
+
+"2016.08.03 by rocksea - scrooloose/syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+"let g:syntastic_javascript_checkers = ['eslint']
+
+"2017.03.23 by rocksea - Ctags & NerdTree Setting
+" NERD Tree를 왼쪽에 생성
+let NERDTreeWinPos = "left"
+" NERD Tree는 F7키. Tag List는 F8키에 매칭.
+nmap <F7> :NERDTree<CR>
+nmap <F8> :TlistToggle<CR>
+filetype on
+" Tag list가 사용하는 ctags의 경로 설정
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Inc_Winwidth = 0
+let Tlist_Exit_OnlyWindow = 0
+let Tlist_Auto_Open = 0
+" Tag list 창을 오른쪽으로 생성
+let Tlist_Use_Right_Window = 1
+" 하위디렉토리 ctags 조회
+"set tags=./tags,tags,../tags,../../tags,../../../tags,../../../../tags
+
+" convention 2017.03.23 by rocksea
+set backspace=2
+set bioskey
+set scrolloff=5
+set background=dark
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set history=1000
+set number
+set hlsearch
+set incsearch
+set ignorecase
+set autowrite
+set nostartofline
+set showmatch
+set laststatus=2
+set statusline=\(%n\)%<%f\ %h%m%r%=0x%B\ \ \ \ \[%-14.(%l,%c%V%)\]\ %P
+syntax on
+vm ^[c ^[`>a */^[`<i/* ^[`<
+nm ^[c ^i/* ^[$a */^[^

@@ -1,0 +1,10 @@
+- name: Installing Vundle
+  git:
+    repo: 'https://github.com/gmarik/vundle.git'
+    dest: ~/.vim/bundle/vundle
+    clone: yes
+    update: yes
+
+- name: Copy vimrc
+  shell: |
+    cp vim/vimrc ~/.vimrc

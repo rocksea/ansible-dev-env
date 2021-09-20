@@ -3,7 +3,7 @@
 할수 있는 도구
 
 ### Features
-- Nginx, Java, Python Django 기본 개발환경 구축 자동화
+- Nginx, Java, Python Django 등 기본 개발환경 구축 자동화
 
 ### Tech
 ansible 2.9.11
