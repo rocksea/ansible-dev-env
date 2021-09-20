@@ -6,3 +6,10 @@
   shell: |
     /bin/sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     cp zsh/zshrc ~/.zshrc
+
+- name: Installing zsh-syntax-highlighing
+  git:
+    repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+    dest: ~/.zsh/zsh-syntax-highlighting
+    clone: yes
+    update: yes

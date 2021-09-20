@@ -16,6 +16,7 @@
     echo 'eval "$(pyenv init -)"' >> ~/.zshrc
     echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
     . ~/.zshrc
+  ignore_errors: True
 
 - name: Installing Python
   shell: |
