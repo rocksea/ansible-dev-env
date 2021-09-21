@@ -1,0 +1,22 @@
+- name: Installing goenv
+  git:
+    repo: 'https://github.com/syndbg/goenv.git'
+    dest: ~/.goenv
+    clone: yes
+    update: yes
+
+- name: Setting Go Environment
+  shell: |
+    echo 'export GOENV_ROOT="$HOME/.goenv"' >> ~/.zshrc
+    echo 'export PATH="$GOENV_ROOT/bin:$PATH"' >> ~/.zshrc
+    echo 'eval "$(goenv init -)"' >> ~/.zshrc
+    echo 'export PATH="$GOROOT/bin:$PATH"' >> ~/.zshrc
+    echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.zshrc
+    exec $SHELL
+  ignore_errors: True
+
+- name: Installing Go
+  shell: |
+    goenv install {{ go_version }}
+    goenv global {{ go_version }}
+  ignore_errors: True

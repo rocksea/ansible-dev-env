@@ -6,7 +6,8 @@
     pyenv_root: /usr/local/bin/
     python_ver: 3.8.5
     jenv_root: /usr/local/bin/
-    java_ver: 11
+    java_version: 11
+    go_version: 1.17.1
     nginx_conf_dir: /etc/nginx/sites-available
     nginx_sites_dir: /etc/nginx/sites-enabled
     nginx_error_log: /var/log/nginx
@@ -16,4 +17,5 @@
   - include: zsh/setup.yml
   - include: java/setup.yml
   - include: python/setup.yml
+  - include: go/setup.yml
   - include: k8s/setup.yml

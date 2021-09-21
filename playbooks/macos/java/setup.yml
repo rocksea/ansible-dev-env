@@ -5,7 +5,7 @@
 - name: Installing Java
   shell: |
     brew tap AdoptOpenJDK/openjdk
-    brew install --cask adoptopenjdk{{ java_ver }}
+    brew install --cask adoptopenjdk{{ java_version }}
 
 - name: Installing Gradle
   shell: |
@@ -21,6 +21,6 @@
     echo 'export PATH="$JENV_ROOT/bin:$PATH"' >> ~/.zshrc
     echo 'eval "$(jenv init -)"' >> ~/.zshrc
     . ~/.zshrc
-    {{ jenv_root }}jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-{{ java_ver }}.jdk/Contents/Home
-    {{ jenv_root }}jenv global {{ java_ver }}
+    {{ jenv_root }}jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-{{ java_version }}.jdk/Contents/Home
+    {{ jenv_root }}jenv global {{ java_version }}
   ignore_errors: True
