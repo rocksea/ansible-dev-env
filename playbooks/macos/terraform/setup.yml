@@ -1,0 +1,9 @@
+- name: Installing tfenv
+  shell: |
+    brew install tfenv
+
+- name: Installing Terraform
+  shell: |
+    tfenv install {{ terraform_version }}
+    tfenv use {{ terraform_version }}
+

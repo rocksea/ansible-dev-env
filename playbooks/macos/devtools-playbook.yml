@@ -8,6 +8,7 @@
     jenv_root: /usr/local/bin/
     java_version: 11
     go_version: 1.17.1
+    terraform_version: 1.0.7
     nginx_conf_dir: /etc/nginx/sites-available
     nginx_sites_dir: /etc/nginx/sites-enabled
     nginx_error_log: /var/log/nginx
@@ -20,3 +21,4 @@
   - include: go/setup.yml
   - include: k8s/setup.yml
   - include: aws/setup.yml
+  - include: terraform/setup.yml
