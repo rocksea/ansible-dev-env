@@ -19,3 +19,4 @@
   - include: python/setup.yml
   - include: go/setup.yml
   - include: k8s/setup.yml
+  - include: aws/setup.yml

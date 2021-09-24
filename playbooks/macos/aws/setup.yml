@@ -1,0 +1,15 @@
+- name: Installing AWS CLI
+  shell: |
+    curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "aws/AWSCLIV2.pkg"
+    installer -pkg aws/AWSCLIV2.pkg -target /
+  ignore_errors: True
+  become: yes
+  become_method: sudo
+
+- name: Installing AWS VAULT
+  shell: |
+    brew install --cask aws-vault
+    cp aws/aws-vault.sh  ~/.aws/
+    echo 'source $HOME/.aws/aws-vault.sh' >> ~/.zshrc
+    rm ~/Library/Keychains/aws-vault.keychain-db
+  ignore_errors: True
