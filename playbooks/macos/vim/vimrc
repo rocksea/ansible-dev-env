@@ -104,7 +104,7 @@ nnoremap <S-J> <C-W><S-J>
 nnoremap <S-R> <C-W><S-R>
 
 "2016.02.23 by rocksea - COLOR THEME (https://github.com/chrishunt/color-schemes.git)
-colorscheme molokai
+colorscheme vimbrant
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
