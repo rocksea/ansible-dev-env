@@ -65,6 +65,8 @@ Plugin 'speeddating'
 Plugin 'mnpk/vim-jira-complete' "2016.03.13 by rocksea
 "Plugin 'scrooloose/syntastic' "2016.08.03 by rocksea
 Plugin 'taglist-plus' "2017.03.23 by rocksea
+Plugin 'flazz/vim-colorschemes' "2021.10.12 by rocksea
+
 
 let g:neocomplcache_enable_at_startup = 1
 
@@ -102,7 +104,7 @@ nnoremap <S-J> <C-W><S-J>
 nnoremap <S-R> <C-W><S-R>
 
 "2016.02.23 by rocksea - COLOR THEME (https://github.com/chrishunt/color-schemes.git)
-colorscheme vimbrant
+colorscheme molokai
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
