@@ -18,7 +18,8 @@ $ brew install ansible
 Ansible Playbook 실행
 ```sh
 $ ansible-playbook playbooks/macos/devtools-playbook.yml
-or
 (target변수에 hosts.yml에 지정한 호스트명을 등록하거나 all을 넣어주면 해당 호스트에서 실행)
-$ ansible-playbook playbooks/osx-dev-playbook.yml --extra-vars "target=hostname"
+
+# osx 개발환경
+$ ansible-playbook playbooks/macos/osx-dev-playbook.yml --extra-vars "target=hostname"
 ```
