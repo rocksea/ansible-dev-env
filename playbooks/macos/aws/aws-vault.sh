@@ -12,6 +12,11 @@ awslogout() { # Logout (clear)
   aws-vault clear
 }
 
+# Caller Identity
+aws_caller(){
+  aws sts get-caller-identity
+}
+
 # EC2
 aws_ec2() {
   aws ec2 describe-instances  --query "Reservations[*].Instances[*].{InstanceId:InstanceId,PublicIP:PublicIpAddress,PrivateIp:PrivateIpAddress,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}" --filters Name=instance-state-name,Values=running --output table
