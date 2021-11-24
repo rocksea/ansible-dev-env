@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-larambla
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: larambla.co.kr
+    http:
+      paths:
+      - path: /member
+        pathType: Prefix
+        backend:
+          service:
+            name: larambla-service
+            port:
+              number: 80
+  ingressClassName: nginx
