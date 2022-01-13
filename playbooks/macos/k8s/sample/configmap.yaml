@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: larambla
+  name: larambla-configmap
+data:
+  serverPort: '8080'
+  dbHost: 'database-2.cluster.ap-northeast-2.rds.amazonaws.com'
+  dbPort: '3306'
+  dbName: 'larambla'
+  dbUsername: 'larambla'
+  dbPassword: 'larambla'
+  dbDdlauto: 'update'

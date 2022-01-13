@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: larambla
+  name: larambla-service-member-api
+spec:
+  #Creating a service of type load balancer. Load balancer gets created but takes time to reflect
+  type: LoadBalancer
+  selector:
+    app: larambla-member-api
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080

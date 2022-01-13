@@ -12,11 +12,6 @@ awslogout() { # Logout (clear)
   aws-vault clear
 }
 
-# Caller Identity
-aws_caller(){
-  aws sts get-caller-identity
-}
-
 # EC2
 aws_ec2() {
   aws ec2 describe-instances  --query "Reservations[*].Instances[*].{InstanceId:InstanceId,PublicIP:PublicIpAddress,PrivateIp:PrivateIpAddress,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}" --filters Name=instance-state-name,Values=running --output table
@@ -52,7 +47,7 @@ aws_eks_list() {
   aws eks list-clusters --output=table
 }
 aws_eks_update_conf() {
-  aws eks update-kubeconfig --region ap-northeast-2 $1
+  aws eks update-kubeconfig --region ap-northeast-2 --name $1
 }
 
 aws_ecr_list() {
@@ -62,6 +57,18 @@ aws_ecr_list() {
 # AWS VPC
 aws_vpc_list() {
   aws ec2 describe-vpcs --query="Vpcs[*].{VpcId:VpcId,OwnerId:OwnerId,CidrBlock:CidrBlock}" --output=table
+}
+
+# AWS Caller
+aws_caller() {
+  aws sts get-caller-identity
+}
+
+# AWS ECR Login
+aws_ecr(){
+  ACCOUNT=`aws_caller | jq '.Account' | sed 's/[""]//g'`
+  echo $ACCOUNT
+  aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin ${ACCOUNT}.dkr.ecr.ap-northeast-2.amazonaws.com
 }
 
 alias al="awslogin"

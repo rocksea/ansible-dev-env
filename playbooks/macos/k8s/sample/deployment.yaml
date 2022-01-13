@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: larambla
+  name: larambla-deployment
+  labels:
+    app: larambla
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: larambla-member-api
+  template:
+    metadata:
+      labels:
+        app: larambla-member-api
+    spec:
+      containers:
+      - name: larambla-member-api
+        image: dkr.ecr.ap-northeast-2.amazonaws.com/larambla:latest
+        ports:
+        - containerPort: 8080
+        env:
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: larambla-configmap
+                key: dbHost
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: larambla-configmap
+                key: dbPort
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: larambla-configmap
+                key: dbName
+          - name: DB_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: larambla-configmap
+                key: dbUsername
+          - name: DB_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: larambla-configmap
+                key: dbPassword
+          - name: DB_DDL_AUTO
+            valueFrom:
+              configMapKeyRef:
+                name: larambla-configmap
+                key: dbDdlauto

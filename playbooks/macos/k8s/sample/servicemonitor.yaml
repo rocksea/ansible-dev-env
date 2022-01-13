@@ -1,0 +1,12 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: larambla-member-api-servicemonitor
+  namespace: larambla
+spec:
+  selector:
+    matchLabels:
+      app: larambla-member-api
+  endpoints:
+  - port: http-traffic
+    path: "/actuator/prometheus"
