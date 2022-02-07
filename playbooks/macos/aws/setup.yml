@@ -14,3 +14,10 @@
     echo 'source $HOME/.aws/aws-vault.sh' >> ~/.zshrc
     rm ~/Library/Keychains/aws-vault.keychain-db
   ignore_errors: True
+
+- name: Installing SAM
+  shell: |
+    brew tap aws/tap
+    brew install aws-sam-cli
+    sam --version
+  ignore_errors: True
