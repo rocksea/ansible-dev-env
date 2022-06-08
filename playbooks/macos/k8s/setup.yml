@@ -26,3 +26,17 @@
   ignore_errors: True
   become: yes
   become_method: sudo
+
+- name: Installing a Argo rollouts
+  shell: |
+    brew install argoproj/tap/kubectl-argo-rollouts
+  ignore_errors: True
+  become: yes
+  become_method: sudo
+
+- name: Installing a Kustomize
+  shell: |
+    curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+  ignore_errors: True
+  become: yes
+  become_method: sudo
