@@ -40,3 +40,13 @@
   ignore_errors: True
   become: yes
   become_method: sudo
+
+- name: Installing a istioctl
+  shell: |
+    curl -L https://istio.io/downloadIstio | sh -
+    cd istio*
+    chmod +x ./bin/istioctl
+    sudo mv ./bin/istioctl /usr/local/bin
+  ignore_errors: True
+  become: yes
+  become_method: sudo
