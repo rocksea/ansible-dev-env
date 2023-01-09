@@ -1,45 +1,32 @@
 - name: Installing a Helm
   shell: |
     brew install helm
+  ignore_errors: True
 
 - name: Installing a Eksclt
   shell: |
-    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-    sudo mv /tmp/eksctl /usr/local/bin
-    eksctl version
+    brew install eksctl
   ignore_errors: True
-  become: yes
-  become_method: sudo
 
 - name: Installing a Kubectl
   shell: |
-    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/amd64/kubectl"
-    chmod +x ./kubectl
-    sudo mv ./kubectl /usr/local/bin
+    brew install kubectl
   ignore_errors: True
-  become: yes
-  become_method: sudo
 
 - name: Installing a Argocd CLI
   shell: |
     brew install argocd
   ignore_errors: True
-  become: yes
-  become_method: sudo
 
 - name: Installing a Argo rollouts
   shell: |
     brew install argoproj/tap/kubectl-argo-rollouts
   ignore_errors: True
-  become: yes
-  become_method: sudo
 
 - name: Installing a Kustomize
   shell: |
     curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
   ignore_errors: True
-  become: yes
-  become_method: sudo
 
 - name: Installing a istioctl
   shell: |
@@ -48,5 +35,3 @@
     chmod +x ./bin/istioctl
     sudo mv ./bin/istioctl /usr/local/bin
   ignore_errors: True
-  become: yes
-  become_method: sudo

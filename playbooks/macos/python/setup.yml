@@ -1,6 +1,7 @@
 - name: Installing pyenv
   shell: |
     brew install pyenv
+  ignore_errors: True
 
 - name: Git clone PyEnv VirtualEnv
   git:
@@ -8,6 +9,7 @@
     dest: ~/.pyenv/plugins/pyenv-virtualenv
     clone: yes
     update: yes
+  ignore_errors: True
 
 - name: Setting Python Environment
   shell: |
@@ -24,6 +26,7 @@
     {{ pyenv_root }}pyenv global {{ python_ver }}
   args:
     stdin: "N" 
+  ignore_errors: True
 
 - name: Installing Django
   shell: |
