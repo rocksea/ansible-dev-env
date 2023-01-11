@@ -6,7 +6,7 @@
     pyenv_root: /usr/local/bin/
     python_ver: 3.8.5
     jenv_root: /usr/local/bin/
-    java_version: 11
+    java_version: 17
     go_version: 1.17.1
     terraform_version: 1.0.7
     nginx_conf_dir: /etc/nginx/sites-available

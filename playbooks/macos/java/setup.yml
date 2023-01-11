@@ -1,21 +1,28 @@
-- name: Installing Jenv
+- name: Install Jenv
   shell: |
     brew install jenv
 
-- name: Installing Java
+- name: Add an openjdk tap
   shell: |
-    brew tap AdoptOpenJDK/openjdk
-    brew install --cask adoptopenjdk{{ java_version }}
+    brew tap homebrew/cask-versions
 
-- name: Installing Gradle
+- name: Install Java11
+  shell: |
+    brew install --cask temurin11
+
+- name: Install Java17
+  shell: |
+    brew install --cask temurin17
+
+- name: Install Gradle
   shell: |
     brew install gradle
 
-- name: Installing Maven
+- name: Install Maven
   shell: |
     brew install maven
 
-- name: Setting Java Environment
+- name: Set up Java Environments
   shell: |
     echo 'export JENV_ROOT="$HOME/.jenv"' >> ~/.zshrc
     echo 'export PATH="$JENV_ROOT/bin:$PATH"' >> ~/.zshrc
