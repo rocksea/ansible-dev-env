@@ -136,6 +136,9 @@ let Tlist_Auto_Open = 0
 let Tlist_Use_Right_Window = 1
 " 하위디렉토리 ctags 조회
 "set tags=./tags,tags,../tags,../../tags,../../../tags,../../../../tags
+"
+# https://jameschambers.co.uk/vim-typescript-slow
+set re=0
 
 " convention 2017.03.23 by rocksea
 set backspace=2
