@@ -1,7 +1,4 @@
-- name: Installing nvm
-- name: nvm
-  shell: >
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-  args:
-    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+- name: Installing nodenv
+  shell: |
+    brew install nodenv
   ignore_errors: True

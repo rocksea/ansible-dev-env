@@ -117,3 +117,20 @@ prompt_context() {
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
+
+export JENV_ROOT="$HOME/.jenv"
+export PATH="$JENV_ROOT/bin:$PATH"
+eval "$(jenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+source $HOME/.aws/aws-vault.sh
+
+#kubernetes
+alias k=kubectl
