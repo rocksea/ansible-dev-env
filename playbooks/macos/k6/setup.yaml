@@ -1,0 +1,4 @@
+- name: Installing k6
+  shell: |
+    brew install k6
+  ignore_errors: True
