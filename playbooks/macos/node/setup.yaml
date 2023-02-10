@@ -1,4 +1,19 @@
-- name: Installing nodenv
+- name: Install nodenv
   shell: |
     brew install nodenv
+  ignore_errors: True
+
+- name: Install node
+  shell: |
+    nodenv install {{ node_version }}
+  ignore_errors: True
+
+- name: set up node version
+  shell: |
+    nodenv global {{ node_version }}
+  ignore_errors: True
+
+- name: Install Typescript
+  shell: |
+    npm install -g ts-node
   ignore_errors: True

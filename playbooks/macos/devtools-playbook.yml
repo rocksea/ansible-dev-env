@@ -8,6 +8,7 @@
     jenv_root: /usr/local/bin/
     java_version: 17
     go_version: 1.17.1
+    node_version: 16.19.0
     terraform_version: 1.0.7
     nginx_conf_dir: /etc/nginx/sites-available
     nginx_sites_dir: /etc/nginx/sites-enabled

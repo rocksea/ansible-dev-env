@@ -1,37 +1,43 @@
-- name: Installing a Helm
+- name: Install a Helm
   shell: |
     brew install helm
   ignore_errors: True
 
-- name: Installing a Eksclt
+- name: Install a Eksclt
   shell: |
     brew install eksctl
   ignore_errors: True
 
-- name: Installing a Kubectl
+- name: Install a Kubectl
   shell: |
     brew install kubectl
   ignore_errors: True
 
-- name: Installing a Argocd CLI
+- name: Install a Argocd CLI
   shell: |
     brew install argocd
   ignore_errors: True
 
-- name: Installing a Argo rollouts
+- name: Install a Argo rollouts
   shell: |
     brew install argoproj/tap/kubectl-argo-rollouts
   ignore_errors: True
 
-- name: Installing a Kustomize
+- name: Install a Kustomize
   shell: |
     curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
   ignore_errors: True
 
-- name: Installing a istioctl
+- name: Install a istioctl
   shell: |
     curl -L https://istio.io/downloadIstio | sh -
     cd istio*
     chmod +x ./bin/istioctl
     sudo mv ./bin/istioctl /usr/local/bin
+  ignore_errors: True
+
+- name: Install a kube shell
+  shell: |
+    cp kube.sh ~/.kube/
+    chmod +x ~/.kube/kube.sh
   ignore_errors: True
