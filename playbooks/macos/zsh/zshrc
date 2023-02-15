@@ -131,6 +131,10 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 source $HOME/.aws/aws-vault.sh
+export NODENV_DIR="$HOME/.nodenv"
+[ -s "$NODENV_DIR" ] && export PATH="$NODENV_DIR/shims:$PATH"
 
 #kubernetes
 alias k=kubectl
+
+
